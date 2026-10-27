@@ -1,6 +1,6 @@
 # MCP
 
-An exploratory Model Context Protocol server built with the MCP TypeScript SDK, running on Bun over stdio.
+A Model Context Protocol server built with the MCP TypeScript SDK, running on Bun over stdio.
 
 ## About The Project
 
