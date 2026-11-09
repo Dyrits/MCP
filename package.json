@@ -1,11 +1,11 @@
 {
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.20.2",
-        "zod": "3.23.8"
+        "zod": "^4.6.6"
     },
     "devDependencies": {
         "@biomejs/biome": "2.3.2",
-        "@modelcontextprotocol/inspector": "^0.17.2",
+        "@modelcontextprotocol/inspector": "^2.14.0",
         "@types/bun": "latest"
     },
     "module": "server.ts",
@@ -16,8 +16,17 @@
     "scripts": {
         "check": "bunx biome check --write",
         "hot": "bun --hot server.ts",
-        "inspect": "bunx @modelcontextprotocol/inspector bun watch",
-        "watch": "bun --watch server.ts"
+        "inspect": "MCP_INSPECTOR_SECRET_STORE=memory bunx @modelcontextprotocol/inspector --web bun server.ts",
+        "watch": "bun --watch server.ts",
+        "test": "bun test",
+        "typecheck": "tsc --noEmit",
+        "inspect:cli": "bunx @modelcontextprotocol/inspector --cli bun server.ts --method tools/list --format json"
     },
-    "type": "module"
+    "type": "module",
+    "overrides": {
+        "@modelcontextprotocol/sdk": {
+            "zod": "^4.6.6"
+        }
+    },
+    "packageManager": "bun@1.4.4"
 }
